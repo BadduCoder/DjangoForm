@@ -1,0 +1,24 @@
+{% extends 'confess/layout.html' %}
+{% block content %}
+
+	<div class="jumbotron text-center">
+		Confession Page<br>
+		<a href="{% url 'confess_new' %}" class="btn btn-info">Confess<span class="glyphicon glyphicon-plus"></span></a>
+	</div>
+	<br>
+	<hr>
+	<br>
+	{% for confession in confessions %}
+	<div class="container">
+	<div class="well text-center">
+		<b>TO:</b><br> {{confession.to}}<br>
+		<b>From:</b><br> {{confession.sender}}<br>
+		<b>Message:</b><br>{{confession.message}}
+		<br>
+		<a href="" class="btn btn-danger btn-sm">Delete</a>
+	</div>
+	</div>
+	<hr>
+	{% endfor %}
+
+{% endblock %}
